@@ -1,5 +1,8 @@
 const express = require('express');
 
+require('./db/mongoose')
+const bookRouter = require('./routers/book')
+
 // express app
 const app = express();
 
@@ -38,8 +41,8 @@ app.get("/books", (req, res) => {
 //     res.render('create', {title: "New"})
 // })
 
-// app.use(express.json())
-// app.use('/api', songRouter)
+app.use(express.json())
+app.use('/api', bookRouter)
 
 // 404 page
 app.use((req, res) => {
