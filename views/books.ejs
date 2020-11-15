@@ -2,8 +2,20 @@
 
     <%- include("./partials/nav.ejs") %>   
     <main>
-        <div>
-            
+        <h2>Some of the books our users have added:</h2>
+        <div class="bookList">
+                <% if(books.length > 0) { %>
+                    <% books.forEach((book) => { %>
+                    <div class="bookItem">
+                        <strong><%= book.title %></strong>
+                        <%= book.author %>
+                        <%= book.year %>
+                        <img src=<%= book.bookCover %> alt="bookCover">
+                    </div>
+                    <% }) %>
+                <% } else { %>
+                    <h2>There is no books to display </h2> 
+                <% } %>
         </div>
     </main>
 <%- include("./partials/footer.ejs") %>

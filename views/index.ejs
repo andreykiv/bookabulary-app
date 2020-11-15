@@ -3,14 +3,15 @@
     <%- include("./partials/nav.ejs") %>   
     <main>
         <div>
-            <h1>Some of the books our users have posted:</h1>
-            <ul>
-                <li>Book1</li>
-                <li>Book2</li>
-                <li>Book3</li>
-                <li>Book4</li>
-                <li>Book5</li>
-            </ul>
+            <h2>Expand your vocabulary by keeping track of unfamiliar words you find in books</h2> <br>
+            <h3>One of the books added by our users:</h3>
+            <div class="randomContainer">
+                    <%let randomBook = books[Math.floor(Math.random() * books.length)] %>
+                    <strong><%= randomBook.title %></strong>
+                    <%= randomBook.author %>
+                    <%= randomBook.year %>
+                    <img  src=<%= randomBook.bookCover %> alt="bookCover">
+            </div>
         </div>
     </main>
 <%- include("./partials/footer.ejs") %>

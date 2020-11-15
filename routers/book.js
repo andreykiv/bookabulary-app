@@ -18,6 +18,7 @@ router.get('/books', async (req, res) => {
     try {
         const books = await Book.find({})
         res.send(books)
+        // res.render('books', {title: "Books", books: books})
     } catch (e) {
         res.status(500).send()
     }
