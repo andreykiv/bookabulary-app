@@ -88,7 +88,7 @@ app.get("/books", (req, res) => {
 })
 
 app.get("/newbook", (req, res) => {
-    res.render('newbook', {title: "New Book"})
+    res.render('newBook', {title: "New Book"})
 })
 
 
