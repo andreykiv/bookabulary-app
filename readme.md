@@ -7,7 +7,7 @@ This app allows to keep track of unfamiliar words that user finds inside books. 
 + Create a book within existing account
     + Book cover
     + Author
-    + Genre
+    + Title
     + Year published
 + Add a new word which is linked to the existing book
     + Word
