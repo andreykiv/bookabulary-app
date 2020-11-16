@@ -5,7 +5,7 @@ const router = new express.Router()
 //crear un libro a partir del req.body
 router.post('/books', async (req, res) => {
     const book = new Book(req.body)
-    
+
     try {
         await book.save()
         res.status(201).send(book)
@@ -18,7 +18,7 @@ router.get('/books', async (req, res) => {
     try {
         const books = await Book.find({})
         res.send(books)
-        // res.render('books', {title: "Books", books: books})
+        // res.render('books', {title: "Books", books})
     } catch (e) {
         res.status(500).send()
     }
