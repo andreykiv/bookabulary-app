@@ -5,7 +5,7 @@ const router = new express.Router()
 //crear un libro a partir del req.body
 router.post('/books', async (req, res) => {
     const book = new Book(req.body)
-
+    
     try {
         await book.save()
         res.status(201).send(book)
@@ -28,7 +28,7 @@ router.get('/books/:id', async (req, res) => {
     const _id = req.params.id
 
     try {
-        const book = await book.findById(_id)
+        const book = await Book.findById(_id)
 
         if (!book) {
             return res.status(404).send()
@@ -39,7 +39,7 @@ router.get('/books/:id', async (req, res) => {
         res.status(500).send()
     }
 })
-
+// modificar campos del libro (title, author, bookCover, year)
 router.patch('/books/:id', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['title', 'author', "bookCover", "year"]
@@ -62,6 +62,7 @@ router.patch('/books/:id', async (req, res) => {
     }
 })
 
+// eliminar el libro segun id.
 router.delete('/books/:id', async (req, res) => {
     try {
         const book = await Book.findByIdAndDelete(req.params.id)
